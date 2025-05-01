@@ -14,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={'flex flex-col'}>
+      <body
+        className={
+          'flex flex-col bg-[url(/images/background-image.png)] bg-center bg-cover'
+        }
+      >
         <main>{children}</main>
         <Toaster />
       </body>
