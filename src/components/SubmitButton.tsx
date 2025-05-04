@@ -6,15 +6,18 @@ type SubmitButtonProps = {
   isDisabled: boolean;
   label: string;
   className?: string;
+  action?: () => void;
 };
 
 const SubmitButton = ({
   isDisabled,
   label,
   className,
+  action,
 }: SubmitButtonProps) => {
   return (
     <Button
+      onClick={action}
       disabled={isDisabled}
       className={cn(className, 'cursor-pointer')}
     >

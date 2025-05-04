@@ -5,5 +5,5 @@ export const formatRootMessageFormError = (err: unknown) => {
     return err.message;
   }
 
-  return 'An error has occurred';
+  return 'Internal server error';
 };

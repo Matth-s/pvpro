@@ -12,12 +12,15 @@ model User {
   id                 String    @id @default(cuid())
   username           String    @unique
   email              String    @unique
-  password           String?
+  password           String
   emailVerified      DateTime? @map("email_verified")
   isTwoFactorEnabled Boolean   @default(false)
+  points             Int       @default(0)
 
   twoFactorConfirmation TwoFactorConfirmation?
   steam                 Steam?
+  searchGame            SearchGame?
+  player                Player?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -68,4 +71,46 @@ model Steam {
 
   userId String @unique
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SearchGame {
+  id        String   @id @default(cuid())
+  mode      GameMode
+  maps      String[]
+  createdAt DateTime @default(now())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Game {
+  id      String   @id @default(cuid())
+  mode    GameMode
+  map     String
+  players Player[]
+
+  createdAt DateTime @default(now())
+}
+
+model Player {
+  id     String       @id @default(cuid())
+  status PLayerStatus @default(waiting)
+  team   String
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  gameId String
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+}
+
+enum GameMode {
+  p_1v1
+  p_2v2
+  p_3v3
+  p_5v5
+}
+
+enum PLayerStatus {
+  joined
+  waiting
 }

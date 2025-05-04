@@ -99,7 +99,8 @@ export const attachSteamAction = async (
     } else {
       return { error: 'Authentication failed' };
     }
-  } catch {
+  } catch (err) {
+    console.log(err);
     throw new Error('Internal server error');
   }
 };

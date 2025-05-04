@@ -6,9 +6,7 @@ export const hashPassword = async (password: string) => {
 
     return hash;
   } catch {
-    throw new Error(
-      'Une erreur survenue lors du hachage du mot de passe'
-    );
+    throw new Error('Internal servor error');
   }
 };
 
@@ -21,8 +19,6 @@ export const comparePassword = async (
 
     return correctPassword;
   } catch {
-    throw new Error(
-      'Une erreur est survenue lors de la comparaison des mots de passe'
-    );
+    throw new Error('Internal servor error');
   }
 };

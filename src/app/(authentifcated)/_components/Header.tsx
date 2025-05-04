@@ -18,9 +18,9 @@ const navLinks = [
 
 const Header = () => {
   return (
-    <header className="w-3/5 mx-auto mt-4 p-4 bg-gray-700 rounded-lg h-fit">
+    <header className="w-4/5 mx-auto my-4 p-4 bg-gray-700 rounded-lg h-fit">
       <nav>
-        <ul className="flex flex-row gap-x-4">
+        <ul className="flex flex-row gap-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}

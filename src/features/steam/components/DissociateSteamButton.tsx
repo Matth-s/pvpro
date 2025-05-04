@@ -38,7 +38,6 @@ type DissociateSteamButtonProps = {
 const DissociateSteamButton = ({
   steamId,
 }: DissociateSteamButtonProps) => {
-  console.log(steamId);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const form = useForm<dissociateSteamType>({

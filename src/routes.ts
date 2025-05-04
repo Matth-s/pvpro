@@ -6,4 +6,6 @@ export const authRoutes = [
   '/auth/reset-password',
 ];
 
+export const publicRoutes = ['/api/matchmaking'];
+
 export const apiAuthPrefix = '/api/auth';
