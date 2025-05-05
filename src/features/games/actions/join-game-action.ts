@@ -30,13 +30,13 @@ export const joinGameAction = async (data: joinGameType) => {
     };
   }
 
-  /* const isExpired = gameIsExpired(existingGame.createdAt);
+  const isExpired = gameIsExpired(existingGame.createdAt);
 
   if (isExpired) {
     return {
       error: 'Game has expired',
     };
-  }*/
+  }
 
   const userIsOnPlayer = existingGame.players.find(
     (player) => player.userId === id
